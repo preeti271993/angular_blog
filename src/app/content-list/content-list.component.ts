@@ -2,6 +2,8 @@ import { Component, OnInit,Injectable } from '@angular/core';
 //import { ContentListBlogService } from '../content-list-blog.service';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams , HttpResponseBase, HttpErrorResponse } from '@angular/common/http';
+import { TruncatePipe } from 'angular-pipes';
+import { SlugifyPipe } from 'angular-pipes';
 
 @Component({
   selector: 'app-content-list',
@@ -15,8 +17,8 @@ export class ContentListComponent implements OnInit {
   constructor( private http: HttpClient ) { }
    
   getBlog() {
-      this.http.get('http://localhost/blog/get_post.php'
-      ,{responseType:"json"}).subscribe(
+      this.http.get('http://localhost/blog/get_post.php',{responseType:"json"})
+      .subscribe(
         response => {
             this.data_content = response;
             console.log("data :"+response);

@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular-pipes": "^9.0.2",
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
     "remove-flow-types-loader": "^1.1.0",

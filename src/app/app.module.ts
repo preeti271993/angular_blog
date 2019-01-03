@@ -6,13 +6,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { BannerSliderComponent } from './banner-slider/banner-slider.component';
-import { ContentListBlogService } from './content-list-blog.service';
 import { HttpClient, HttpParams , HttpResponseBase, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { TruncatePipe } from 'angular-pipes';
+import { SlugifyPipe } from 'angular-pipes';
+import { RouterModule, Routes , Router, ActivatedRoute } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { BlogSingleComponent } from './blog-single/blog-single.component';
 
 
 @NgModule({
@@ -22,13 +24,20 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     ContentListComponent,
-    BannerSliderComponent
+    BannerSliderComponent,
+    TruncatePipe,
+    SlugifyPipe,
+    BlogSingleComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule
+
   ],
-  providers: [ContentListBlogService],
+  providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
