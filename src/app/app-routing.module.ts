@@ -13,7 +13,7 @@ const routes: Routes = [
 	   component: ContentListComponent
 	  },
 	  {
-	   path: 'blog/{{data.title | slugify}}',
+	   path: 'blog/:path',
 	   component: BlogSingleComponent
 	  },
 ];

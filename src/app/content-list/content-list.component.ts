@@ -17,7 +17,7 @@ export class ContentListComponent implements OnInit {
   constructor( private http: HttpClient ) { }
    
   getBlog() {
-      this.http.get('http://localhost/blog/get_post.php',{responseType:"json"})
+      this.http.get('http://localhost/blog/api/get_post.php',{responseType:"json"})
       .subscribe(
         response => {
             this.data_content = response;
@@ -31,3 +31,4 @@ export class ContentListComponent implements OnInit {
   }
 
 }
+
