@@ -3,7 +3,9 @@
 <div id="colorlib-page">
 
    <app-header></app-header>
+   <div *ngIf="router.url == '/'">
    <app-banner-slider></app-banner-slider>
+</div>
    <div class="main-section">
     <router-outlet></router-outlet>
    </div>

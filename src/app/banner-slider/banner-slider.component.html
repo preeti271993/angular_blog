@@ -9,66 +9,21 @@
 			</div>
 			<div class="three-forth">
 				<div class="owl-carousel1">
-					<div class="item">
-						<div class="featured-img" style="background-image: url(assets/images/img-bg-1.jpg);">
+					<div class="item" *ngFor='let data of data_content_slider || async'>
+						<div class="featured-img" style="background-image: url({{data.img_thumbnail}})">
 							<div class="overlay"></div>
+
 							<a href="#" class="text-inner">
 								<div class="desc">
-									<h2>Make website from scratch</h2>
-									<span class="meta"><small>Feb 08, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h2>{{data.title}}</h2>
+									<span class="meta"><small>{{data.date_created}} </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
 									<span class="icon"><i class="icon-arrow-right4"></i></span>
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="item">
-						<div class="featured-img" style="background-image: url(assets/images/img-bg-2.jpg);">
-							<div class="overlay"></div>
-							<a href="#" class="text-inner">
-								<div class="desc">
-									<h2>20 Modern Inspirational UI Examples</h2>
-									<span class="meta"><small>Feb 08, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<span class="icon"><i class="icon-arrow-right4"></i></span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="featured-img" style="background-image: url(assets/images/img-bg-3.jpg);">
-							<div class="overlay"></div>
-							<a href="#" class="text-inner">
-								<div class="desc">
-									<h2>Support for Legacy Browsers</h2>
-									<span class="meta"><small>Feb 08, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<span class="icon"><i class="icon-arrow-right4"></i></span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="featured-img" style="background-image: url(assets/images/img-bg-4.jpg);">
-							<div class="overlay"></div>
-							<a href="#" class="text-inner">
-								<div class="desc">
-									<h2>An Unobstrusive ‘Dashboard’ Link</h2>
-									<span class="meta"><small>Feb 08, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<span class="icon"><i class="icon-arrow-right4"></i></span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="featured-img" style="background-image: url(assets/images/img-bg-5.jpg);">
-							<div class="overlay"></div>
-							<a href="#" class="text-inner">
-								<div class="desc">
-									<h2>Fixing Jagged Google Fonts in Chrome</h2>
-									<span class="meta"><small>Feb 08, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<span class="icon"><i class="icon-arrow-right4"></i></span>
-								</div>
-							</a>
-						</div>
-					</div>
+					
+					
 				</div>
 			</div>
 		</div>

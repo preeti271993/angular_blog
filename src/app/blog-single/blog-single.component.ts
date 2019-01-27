@@ -13,6 +13,7 @@ export class BlogSingleComponent implements OnInit {
 
  private blogParams: any[];
  public data_content_single: any;
+ public data_content_single_comment: any;
 
 constructor(private route: ActivatedRoute , private http: HttpClient) { }
   
@@ -26,11 +27,14 @@ console.log(this.blogParams);
 }
 
 getSingleBlog(){
-	this.http.get('http://localhost/blog/api/get_post_by_id.php', {responseType:"json"})
-	.subscribe(Response => {
-		this.data_content_single = Response;
-		console.log("data :"+Response);
-	})
+	this.http.get('http://localhost/blog/api/get_post_by_id.php?post_id='+this.blogParams, {responseType:"json"})
+	.subscribe(
+        response => {
+            this.data_content_single = response.details;
+            this.data_content_single_comment = response.comments;
+            console.log("data :"+response);
+            var sample=JSON.stringify(response);
+       });
 }
 
 }
