@@ -15,8 +15,26 @@ import { TruncatePipe } from 'angular-pipes';
 import { SlugifyPipe } from 'angular-pipes';
 import { RouterModule, Routes , Router, ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
-
+/*import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule,
+         MatBadgeModule,
+         MatButtonModule,
+         MatButtonToggleModule,
+         MatCheckboxModule,
+         MatIconModule,
+         MatInputModule,
+         MatProgressSpinnerModule,
+         MatRadioModule,
+         MatRippleModule,
+         MatFormFieldControl,
+         MatTooltipModule,
+         MatOptionModule,
+         MatTableModule,
+         MatFormFieldModule,
+    } from '@angular/material';*/
 
 
 @NgModule({
@@ -34,7 +52,19 @@ import { BlogSingleComponent } from './blog-single/blog-single.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+   /* BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatRippleModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatOptionModule,
+    MatCheckboxModule,
+    MatCheckboxModule,*/
 
   ],
   providers: [],

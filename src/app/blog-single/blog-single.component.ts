@@ -1,6 +1,6 @@
 import { Component, OnInit , Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-//import { ContentListBlogService } from '../content-list-blog.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams , HttpResponseBase, HttpErrorResponse } from '@angular/common/http';
 
@@ -15,10 +15,23 @@ export class BlogSingleComponent implements OnInit {
  public data_content_single: any;
  public data_content_single_comment: any;
  public data_content_single_comment_count : any;
+ // comment form
+ commentForm: FormGroup;
+ submitted= false;
 
-constructor(private route: ActivatedRoute , private http: HttpClient) { }
+constructor(private route: ActivatedRoute , private http: HttpClient, public formBuilder: FormBuilder) { }
   
 ngOnInit() {
+
+  //form validations
+
+  this.commentForm = this.formBuilder.group({
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            subject: ['', [Validators.required]],
+            message: [''],
+          } );
 
 this.route.params.subscribe(params => {
 this.blogParams = params['path'];
@@ -27,6 +40,22 @@ this.getSingleBlog();
 console.log(this.blogParams);
 }
 
+
+ // convenience getter for easy access to form fields
+    get f() { 
+      return this.commentForm.controls; 
+    }
+
+    onSubmit() {
+        this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.commentForm.invalid) {
+            return;
+        }
+
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.commentForm.value))
+    }
 
 
 // Single content and comment api
