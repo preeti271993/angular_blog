@@ -10,7 +10,8 @@
 			<div class="three-forth">
 				<div class="owl-carousel1">
 					<div class="item" *ngFor='let data of data_content_slider || async'>
-						<div class="featured-img" style="background-image: url({{data.img_thumbnail}})">
+
+						<div class="featured-img" [ngStyle]="{'background-image': 'url(' + data.img_thumbnail + ')'}">
 							<div class="overlay"></div>
 
 							<a href="#" class="text-inner">

@@ -1,4 +1,4 @@
-import { Component , ngOnit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule, Routes , Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { RouterModule, Routes , Router, ActivatedRoute } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements ngOnit{
+export class AppComponent{
   title = 'app';
 
   constructor(public router: Router){}

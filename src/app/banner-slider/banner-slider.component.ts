@@ -10,14 +10,18 @@ import { HttpClient, HttpParams , HttpResponseBase, HttpErrorResponse } from '@a
 export class BannerSliderComponent implements OnInit {
 
    public data_content_slider:any;
+   public data_content_img: any;
+
   constructor( private http: HttpClient ) { }
    
   getBlog_slide() {
+
+      
       this.http.get('http://localhost/blog/api/get_post.php',{responseType:"json"})
       .subscribe(
-        response => {
+        (response: any) => {
             this.data_content_slider = response;
-            console.log("data :"+response);
+          //  this.data_content_img = ;
             var sample=JSON.stringify(response);
        });
   }
