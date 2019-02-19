@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
+import { RegisterComponent } from './register/register.component';
 /*import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule,
          MatBadgeModule,
@@ -47,7 +48,8 @@ import { MatAutocompleteModule,
     BannerSliderComponent,
     TruncatePipe,
     SlugifyPipe,
-    BlogSingleComponent
+    BlogSingleComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

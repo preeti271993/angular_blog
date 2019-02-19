@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
-import { SlugifyPipe } from 'angular-pipes';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -15,7 +15,11 @@ const routes: Routes = [
 	  {
 	   path: 'blog/:path',
 	   component: BlogSingleComponent
-	  },
+    },
+    {
+      path: 'register',
+      component: RegisterComponent
+     },
 ];
 
 @NgModule({

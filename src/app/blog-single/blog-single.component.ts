@@ -15,6 +15,7 @@ export class BlogSingleComponent implements OnInit {
  public data_content_single: any;
  public data_content_single_comment: any;
  public data_content_single_comment_count : any;
+ public data_comment : any;
  // comment form
  commentForm: FormGroup;
  submitted= false;
@@ -28,15 +29,15 @@ ngOnInit() {
   this.commentForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            subject: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.pattern('[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})')]],
             message: [''],
           } );
 
-this.route.params.subscribe(params => {
-this.blogParams = params['path'];
-});
+      this.route.params.subscribe(params => {
+      this.blogParams = params['path'];
+      });
 this.getSingleBlog();
+
 console.log(this.blogParams);
 }
 
@@ -46,15 +47,21 @@ console.log(this.blogParams);
       return this.commentForm.controls; 
     }
 
-    onSubmit() {
-        this.submitted = true;
+    onSubmit(formVal) {
+        var data = {'post_id':this.blogParams,'content':this.commentForm.value.message,'author':this.commentForm.value.firstName};
+          this.postComment(data);
+           
+          //reset form data
+          this.commentForm.reset();
 
-        // stop here if form is invalid
-        if (this.commentForm.invalid) {
-            return;
-        }
+        
+        // // stop here if form is invalid
+        // if (this.commentForm.invalid && this.commentForm.value != null) {
 
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.commentForm.value))
+          
+        // }
+
+        
     }
 
 
@@ -67,8 +74,18 @@ getSingleBlog(){
             this.data_content_single_comment = response.comments;
             this.data_content_single_comment_count = response.comments.length;
             console.log("data :"+response);
-            var sample=JSON.stringify(response);
        });
 }
+
+//post comment api
+postComment(data){
+  this.http.post('http://localhost/blog/api/save_comment.php', data)
+  .subscribe(
+        (response: any) => {           
+            console.log(response);
+       });
+}
+
+ 
 
 }
